@@ -56,6 +56,7 @@ export default function Example() {
             </div>
         );
     }
+
     useEffect(() => {
         UserDataStore.changeUser(usersData);
     }, [usersData]);

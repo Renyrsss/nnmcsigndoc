@@ -25,7 +25,7 @@ const SignaturePad = ({
     const navigate = useNavigate();
     const sigCanvas = useRef({});
     const [signature, setSignature] = useState(null);
-
+    const [loading, setLoading] = useState(true);
     const [signSuccess, setsignSuccess] = useState(false);
 
     const clear = (e) => {
@@ -95,18 +95,19 @@ const SignaturePad = ({
             console.log(pdf(<PDFDocument signature={signature} />));
             // const response = await axios.post('http://192.168.101.25:1337/api/bahadors', jsonData );
             axios
-                .post("http://192.168.101.25:1339/api/upload/", formData)
+                .post("http://localhost:1339/api/upload/", formData)
                 .then((res) => {
+                    userData.chagneLoading(true);
                     const fileId = res.data[0].id;
                     console.log(jsonData);
                     axios
                         .post(
-                            `http://192.168.101.25:1339/api/podpisannye-dokumenties`,
+                            `http://localhost:1339/api/podpisannye-dokumenties`,
                             {
                                 data: {
                                     userName: userData.user.fio,
-                                    userTName: userData.user.iin,
-                                    userSecondName: userData.user.data,
+                                    useriin: userData.user.iin,
+                                    userPhone: userData.user.phone,
                                     userEmail: userData.user.Email,
                                     userDoc: fileId,
                                 },
@@ -136,6 +137,7 @@ const SignaturePad = ({
                                     // navigate("/");
                                     setTimeout(() => {
                                         setsignSuccess(false);
+                                        userData.chagneLoading(false);
                                         navigate("/");
                                     }, 2000);
                                 })

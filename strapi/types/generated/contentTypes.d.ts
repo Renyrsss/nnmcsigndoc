@@ -376,8 +376,8 @@ export interface ApiPodpisannyeDokumentyPodpisannyeDokumenty
   };
   attributes: {
     userName: Attribute.String;
-    userSecondName: Attribute.String;
-    userTName: Attribute.String;
+    useriin: Attribute.String;
+    userPhone: Attribute.String;
     userEmail: Attribute.Email;
     userDoc: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
