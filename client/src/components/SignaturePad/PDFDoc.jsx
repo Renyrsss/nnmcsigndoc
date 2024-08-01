@@ -83,8 +83,8 @@ const PDFDocument = ({ signature }) => (
 
                 <Text style={styles.tab}>
                     Я, пациент/законный представитель : {UserDataStore.user.fio}
-                    , Иин {UserDataStore.user.iin} , находясь в{" "}
-                    {UserDataStore.user.adress} , Контактный телефон{" "}
+                    , Иин {UserDataStore.user.iin} , находясь в Международном
+                    онкологическом центре томотерапии «ҮМІТ, Контактный телефон{" "}
                     {UserDataStore.user.phone}.
                 </Text>
                 <Text style={styles.tab}>

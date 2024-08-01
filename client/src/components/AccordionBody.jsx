@@ -57,8 +57,9 @@ function AccordionCustomIcon() {
                     <p className="mb-2 first-letter:ml-5 text-justify">
                         Я, пациент/законный представитель :{" "}
                         {UserDataStore.user.fio}, Иин {UserDataStore.user.iin} ,
-                        находясь в {UserDataStore.user.adress} , Контактный
-                        телефон {UserDataStore.user.phone}.
+                        находясь в Международном онкологическом центре
+                        томотерапии «ҮМІТ , Контактный телефон{" "}
+                        {UserDataStore.user.phone}.
                     </p>
                     <p className="mb-2 first-letter:ml-5 text-justify">
                         (наименование медицинской организации) (далее -
