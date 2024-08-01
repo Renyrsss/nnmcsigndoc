@@ -97,7 +97,6 @@ const SignaturePad = ({
             axios
                 .post("http://localhost:1339/api/upload/", formData)
                 .then((res) => {
-                    userData.chagneLoading(true);
                     const fileId = res.data[0].id;
                     console.log(jsonData);
                     axios
@@ -164,7 +163,7 @@ const SignaturePad = ({
     function alertSuccess() {
         return (
             <div
-                className="p-4 font-bold  mb-4 text-xl text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border"
+                className="p-4 font-bold  mb-4 text-xl text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border z-50"
                 role="alert"
             >
                 <span className="font-medium">Документ подписан.</span> Копия

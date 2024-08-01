@@ -5,7 +5,7 @@ class User {
     agreed = false;
     signed = "";
     submitBtn = false;
-    loading = true;
+    loading = false;
     constructor() {
         makeAutoObservable(this);
     }

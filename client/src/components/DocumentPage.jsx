@@ -1,7 +1,11 @@
 import React from "react";
 import AccordionBody from "./AccordionBody";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function DocumentPage() {
+    const navigate = useNavigate();
+
     return (
         <div className="mx-auto mt-16 max-w-xl sm:mt-16 sd:mt-20">
             <div

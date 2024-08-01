@@ -55,14 +55,14 @@ function SignPage() {
 
     function loadingBox() {
         return (
-            <div className="w-full h-full ">
-                <div className="fixed w-full h-full bg-black opacity-20 "></div>
+            <>
+                <div className=" fixed w-full h-full bg-black opacity-20 z-10"></div>
 
-                <div class="fixed top-1/2 left-1/2 -translate-x-1/2 ">
+                <div className="fixed top-1/2 left-1/2 -translate-x-1/2">
                     <div role="status">
                         <svg
                             aria-hidden="true"
-                            class="inline w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                            className="inline w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -76,17 +76,17 @@ function SignPage() {
                                 fill="currentFill"
                             />
                         </svg>
-                        <span class="sr-only">Loading...</span>
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 
     return (
-        <div>
-            {UserDataStore.loading ? loadingBox() : " "}
+        <>
             <div className="-mt-20 pt-20 ">
+                {UserDataStore.loading ? loadingBox() : " "}
                 <div className="mx-auto mt-16 max-w-xl sm:mt-20 sd:mt-24">
                     {alertState ? alertBox() : ""}
                     <div className="mx-auto max-w-2xl text-center">
@@ -153,7 +153,10 @@ function SignPage() {
                     <div className="mt-10">
                         <p
                             onClick={(e) => {
-                                if (agreed) validateData();
+                                if (agreed) {
+                                    UserDataStore.chagneLoading(true);
+                                    validateData();
+                                }
                             }}
                             className={`block w-full rounded-md sd:w-40 sd:mx-auto ${
                                 agreed ? "bg-indigo-600" : " bg-gray-600"
@@ -168,7 +171,7 @@ function SignPage() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
