@@ -264,8 +264,7 @@ function AccordionCustomIcon() {
                         именуемый/-ая в дальнейшем «Заказчик»/«Пациент»,{" "}
                         {UserDataStore.user.data} года рождения, удостоверение
                         личности (паспорт) № {UserDataStore.user.numberUcard}{" "}
-                        выданное {UserDataStore.user.dateUcard}{" "}
-                        {UserDataStore.user.dateUcard},{" "}
+                        выданное {UserDataStore.user.dateUcard} ,{" "}
                         {UserDataStore.user.cardSide} , с другой стороны,
                         совместно именуемые «Стороны», в рамках Договора
                         открытой (публичной) оферты на оказание платных
