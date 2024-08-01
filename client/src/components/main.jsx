@@ -29,8 +29,7 @@ export default function Example() {
             usersData.dateUcard.trim() &&
             usersData.Email.trim().includes("@") &&
             usersData.cardSide.trim() &&
-            usersData.cardSide != "Выберите" &&
-            usersData.iin.trim() == 12
+            usersData.cardSide != "Выберите"
         ) {
             console.log("enter the field");
             navigate("/Document");
