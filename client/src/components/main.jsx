@@ -29,7 +29,8 @@ export default function Example() {
             usersData.dateUcard.trim() &&
             usersData.Email.trim().includes("@") &&
             usersData.cardSide.trim() &&
-            usersData.cardSide != "Выберите"
+            usersData.cardSide != "Выберите" &&
+            usersData.iin.trim() == 12
         ) {
             console.log("enter the field");
             navigate("/Document");
@@ -48,7 +49,6 @@ export default function Example() {
                 role="alert"
             >
                 <p className="font-medium text-center">
-                    {/* Пожалуйста заполните все поля{" "} */}
                     {usersData.Email.trim().includes("@")
                         ? "Пожалуйста заполните все поля "
                         : "Введите корректные данные почты "}
