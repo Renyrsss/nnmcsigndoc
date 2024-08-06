@@ -1,0 +1,21 @@
+{
+    "fio": "Full name",
+    "adress": "Address",
+    "sign": "Sign the document",
+    "alertField": "Please fill in all fields",
+    "alertEmail": "Please enter correct email details",
+    "date": "Date of Birth",
+    "idCard": " identity card (passport) No.",
+    "idData": "date of issue of the document",
+    "sideId": "issuing authority",
+    "changeSide": "Select",
+    "sides1": "МВД РК",
+    "sides2": "МЮ РК",
+    "iin": "IIN",
+    "phone": "Phone",
+    "email": "Email",
+    "nextBtn1": "View document",
+    "nextBtn2": "",
+    "nextBtn3": "",
+    "agree": "I agree with the terms of the document."
+}

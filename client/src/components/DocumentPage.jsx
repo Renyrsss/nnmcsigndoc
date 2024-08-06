@@ -2,9 +2,11 @@ import React from "react";
 import AccordionBody from "./AccordionBody";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function DocumentPage() {
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="mx-auto mt-16 max-w-xl sm:mt-16 sd:mt-20">
@@ -22,7 +24,7 @@ function DocumentPage() {
             </div>
             <div className="mx-auto max-w-2xl text-center mb-10">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                    Просмотр Документа
+                    {t("nextBtn1")}
                 </h2>
             </div>
             <AccordionBody />
@@ -31,7 +33,7 @@ function DocumentPage() {
                 <button
                     className={`  mb-4 block w-44 rounded-md  bg-indigo-600 mx-auto   px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer mt-10`}
                 >
-                    Прочесть документ
+                    {t("sign")}
                 </button>
             </Link>
         </div>

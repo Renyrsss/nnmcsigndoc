@@ -6,10 +6,15 @@ class User {
     signed = "";
     submitBtn = false;
     loading = false;
+    langs = "";
     constructor() {
         makeAutoObservable(this);
     }
 
+    changeLangues(langsF) {
+        this.langs = langsF;
+        console.log(langsF);
+    }
     changeUser(newUser) {
         console.log(newUser);
         // console.log(this.user);

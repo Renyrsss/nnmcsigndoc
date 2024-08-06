@@ -3,8 +3,10 @@ import SignaturePad from "./SignaturePad/SignaturePad";
 import { Field, Label, Switch } from "@headlessui/react";
 import { useEffect, useState, useRef } from "react";
 import UserDataStore from "../store/userData";
+import { useTranslation } from "react-i18next";
 
 function SignPage() {
+    const { t, i18n } = useTranslation();
     const childRef = useRef();
     const [signature, setSignature] = useState(null);
     const [alertState, setalertState] = useState(false);
@@ -46,9 +48,7 @@ function SignPage() {
                 className="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border "
                 role="alert"
             >
-                <p className="font-medium text-center">
-                    Пожалуйста заполните все поля{" "}
-                </p>{" "}
+                <p className="font-medium text-center">{t("alertField")}</p>
             </div>
         );
     }
@@ -91,7 +91,7 @@ function SignPage() {
                     {alertState ? alertBox() : ""}
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-10">
-                            Подпишите документ
+                            {t("sign")}
                         </h2>
                     </div>
                     <div
@@ -147,7 +147,7 @@ function SignPage() {
                             </Switch>
                         </div>
                         <Label className="text-sm leading-6 text-gray-600">
-                            я согласен с условиями документа .
+                            {t("agree")}
                         </Label>
                     </Field>
                     <div className="mt-10">
@@ -166,7 +166,7 @@ function SignPage() {
                                 agreed ? "bg-indigo-600" : " bg-gray-600"
                             } cursor-pointer`}
                         >
-                            Подписать
+                            {t("sign")}
                         </p>
                     </div>
                 </div>
