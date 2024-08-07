@@ -12,6 +12,7 @@ import userData from "../../store/userData";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./SignaturePad.css";
+import { useTranslation } from "react-i18next";
 
 const SignaturePad = ({
     onEnd,
@@ -34,7 +35,7 @@ const SignaturePad = ({
         setSignature(null);
         agreedFunc(false);
     };
-
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         if (sigCanvas.current.isEmpty()) {
             agreedFunc(false);
@@ -168,8 +169,7 @@ const SignaturePad = ({
                 className="p-4 font-bold  mb-4 text-xl text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border z-50"
                 role="alert"
             >
-                <span className="font-medium">Документ подписан.</span> Копия
-                документа отправлено вам на почту .
+                <span className="font-medium">{t("succ")}</span>
             </div>
         );
     }
@@ -193,7 +193,7 @@ const SignaturePad = ({
                     className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}
                     onClick={clear}
                 >
-                    Сбросить
+                    {t("reload")}
                 </button>
 
                 {/* {<button 
@@ -208,7 +208,7 @@ const SignaturePad = ({
                     className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}
                 >
                     {({ loading }) =>
-                        loading ? "Generating PDF..." : "Просмотр документа"
+                        loading ? "Generating PDF..." : t("lookdoc")
                     }
                 </PDFDownloadLink>
             </div>

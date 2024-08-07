@@ -1402,7 +1402,7 @@ function enDoc(signature) {
                     </Text>
 
                     <Text style={styles.marginTop}>
-                        Data {date.getDate()}.{date.getMonth() + 1}.
+                        Date {date.getDate()}.{date.getMonth() + 1}.
                         {date.getFullYear()}
                     </Text>
                     <Text>{UserDataStore.user.fio}</Text>

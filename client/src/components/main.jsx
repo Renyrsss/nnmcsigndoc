@@ -100,7 +100,7 @@ export default function Example() {
             >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-3  mb-6">
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("kz");
@@ -110,7 +110,7 @@ export default function Example() {
                         Қазақ тілі
                     </button>
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("Ru");
@@ -120,7 +120,7 @@ export default function Example() {
                         Русский
                     </button>
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("en");

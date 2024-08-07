@@ -17,5 +17,8 @@
     "nextBtn1": "View document",
     "nextBtn2": "",
     "nextBtn3": "",
-    "agree": "I agree with the terms of the document."
+    "agree": "I agree with the terms of the document.",
+    "succ": "The document has been signed. A copy of the document has been sent to you by email.",
+    "reload": "Reset",
+    "lookdoc": "View document"
 }

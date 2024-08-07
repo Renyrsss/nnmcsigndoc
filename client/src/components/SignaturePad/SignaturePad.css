@@ -7,3 +7,27 @@
 .zindexMain {
     z-index: 2000;
 }
+.gradKZ {
+    background: linear-gradient(
+        90deg,
+        rgba(18, 18, 215, 1) 0%,
+        rgba(57, 100, 216, 1) 26%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+.gradEn {
+    background: linear-gradient(
+        90deg,
+        rgba(198, 136, 241, 1) 0%,
+        rgba(216, 57, 108, 1) 26%,
+        rgba(226, 62, 93, 1) 100%
+    );
+}
+.gradRu {
+    background: linear-gradient(
+        0deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(51, 0, 255, 1) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
