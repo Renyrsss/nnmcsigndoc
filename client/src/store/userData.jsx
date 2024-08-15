@@ -6,7 +6,7 @@ class User {
     signed = "";
     submitBtn = false;
     loading = false;
-    langs = "";
+    langs = "ru";
     constructor() {
         makeAutoObservable(this);
     }

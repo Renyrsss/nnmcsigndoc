@@ -6,7 +6,7 @@ import UserDataStore from "../store/userData";
 export default function Example() {
     const navigate = useNavigate();
     let [alertState, setalertState] = useState(false);
-    let [langState, setLangState] = useState("");
+    let [langState, setLangState] = useState("ru");
 
     const { t, i18n } = useTranslation();
 
@@ -100,7 +100,7 @@ export default function Example() {
             >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-3  mb-6">
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("kz");
@@ -110,7 +110,7 @@ export default function Example() {
                         Қазақ тілі
                     </button>
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("Ru");
@@ -120,7 +120,7 @@ export default function Example() {
                         Русский
                     </button>
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full gradKZ"
                         onClick={(e) => {
                             e.preventDefault();
                             changeLang("en");
@@ -155,7 +155,7 @@ export default function Example() {
                             />
                         </div>
                     </div>
-                    <div>
+                    <di1>
                         <label
                             htmlFor="last-name"
                             className="block text-sm font-semibold leading-6 text-gray-900"
@@ -178,7 +178,7 @@ export default function Example() {
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
-                    </div>
+                    </di1>
                 </div>
 
                 <div className=" flex flex-col items-end mb-4 sm:justify-between sm:flex-row">
