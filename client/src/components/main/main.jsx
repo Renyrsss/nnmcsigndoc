@@ -24,7 +24,7 @@ export default function Example() {
         surName: "",
         thirthName: "",
         userSide: "",
-        Email: "",
+        Email: "agr@tomo.kz",
         cardModel: "",
         cardCount: "",
     });
