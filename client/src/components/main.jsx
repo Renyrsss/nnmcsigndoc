@@ -16,7 +16,7 @@ export default function Example() {
         iin: "",
         adress: "",
         phone: "",
-        Email: "agr@tomo.kz",
+        Email: "mexelsend@gmail.com",
         numberUcard: "",
         dateUcard: "",
         cardSide: "",
