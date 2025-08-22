@@ -96,13 +96,13 @@ const SignaturePad = ({
             console.log(pdf(<PDFDocument signature={signature} />));
             // const response = await axios.post('http://192.168.101.25:1337/api/bahadors', jsonData );
             axios
-                .post("http://192.168.13.147:1339/api/upload/", formData) //192.168.13.147  localhost
+                .post("http://192.168.101.25:1339/api/upload/", formData) //192.168.13.147  localhost
                 .then((res) => {
                     const fileId = res.data[0].id;
                     console.log(jsonData);
                     axios
                         .post(
-                            `http://192.168.13.147:1339/api/podpisannye-dokumenties`,
+                            `http://192.168.101.25:1339/api/podpisannye-dokumenties`,
                             {
                                 //192.168.13.147   localhost
                                 data: {
@@ -117,7 +117,7 @@ const SignaturePad = ({
                         .then((e) => {
                             console.log(jsonData);
                             //192.168.13.147  localhost
-                            fetch("http://192.168.13.147:3003/send", {
+                            fetch("http://192.168.101.25:3003/send", {
                                 method: "POST",
                                 // headers: {
                                 // 'Content-Type': 'application/json'
@@ -166,10 +166,9 @@ const SignaturePad = ({
     function alertSuccess() {
         return (
             <div
-                className="p-4 font-bold  mb-4 text-xl text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border z-50"
-                role="alert"
-            >
-                <span className="font-medium">{t("succ")}</span>
+                className='p-4 font-bold  mb-4 text-xl text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 fixed w-90 left-1/2 -translate-x-1/2 top-1/3  box-border z-50'
+                role='alert'>
+                <span className='font-medium'>{t("succ")}</span>
             </div>
         );
     }
@@ -177,10 +176,10 @@ const SignaturePad = ({
     return (
         <div>
             {signSuccess ? alertSuccess() : ""}
-            <div className="flex justify-center">
+            <div className='flex justify-center'>
                 <SignatureCanvas
                     ref={sigCanvas}
-                    penColor="blue"
+                    penColor='blue'
                     canvasProps={{
                         width: "300px",
                         height: "140px",
@@ -188,11 +187,10 @@ const SignaturePad = ({
                     }}
                 />
             </div>
-            <div className="flex justify-between  mb-8  px-6  sm:flex-wrap sd:gap-2 sd:items-center sd:flex-col">
+            <div className='flex justify-between  mb-8  px-6  sm:flex-wrap sd:gap-2 sd:items-center sd:flex-col'>
                 <button
                     className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}
-                    onClick={clear}
-                >
+                    onClick={clear}>
                     {t("reload")}
                 </button>
 
@@ -204,9 +202,8 @@ const SignaturePad = ({
                   </button> } */}
                 <PDFDownloadLink
                     document={<PDFDocument signature={signature} />}
-                    fileName="signature.pdf"
-                    className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}
-                >
+                    fileName='signature.pdf'
+                    className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}>
                     {({ loading }) =>
                         loading ? "Generating PDF..." : t("lookdoc")
                     }

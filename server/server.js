@@ -22,12 +22,12 @@ const upload = multer({ storage: storage });
 
 // Настройка транспортера для Nodemailer с использованием Яндекс Почты
 let transporter = nodemailer.createTransport({
-    host: "smtp.yandex.com",
-    port: 465,
-    secure: true, // true для 465, false для других портов
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true для 465, false для других портов
     auth: {
-        user: "tomosign@tomo.kz", // ваш email на Яндекс aidarmukhamedin@yandex.ru
-        pass: "xgcgxishmupwcajs", // ваш пароль allqaysmjeudveun
+        user: "mexelsend@gmail.com", // ваш email на Яндекс aidarmukhamedin@yandex.ru
+        pass: "lifr ufym nyes tlrn", // ваш пароль allqaysmjeudveun
     },
 });
 
@@ -44,7 +44,7 @@ app.post("/send", upload.single("files"), (req, res) => {
         from: "tomosign@tomo.kz",
         to: jsonData.userMail,
         subject: `new message for  `,
-        text: `hello this is massage for`,
+        text: ``,
         attachments: [
             {
                 filename: pdfFile.filename,
