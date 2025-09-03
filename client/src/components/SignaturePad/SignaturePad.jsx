@@ -87,7 +87,7 @@ const SignaturePad = ({
         const jsonData = {
             userName: userData.user.fio,
             userSide: userData.user.iin,
-            userSurname: userData.user.data,
+            // userSurname: userData.user.data,
             userMail: userData.user.Email,
         };
         console.log(pdfBlob);
@@ -200,14 +200,14 @@ const SignaturePad = ({
                         >
                               Save
                   </button> } */}
-                <PDFDownloadLink
+                {/* <PDFDownloadLink
                     document={<PDFDocument signature={signature} />}
                     fileName='signature.pdf'
                     className={`block w-44 rounded-md  bg-indigo-600  px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm bg-indigo-500  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600  cursor-pointer`}>
                     {({ loading }) =>
                         loading ? "Generating PDF..." : t("lookdoc")
                     }
-                </PDFDownloadLink>
+                </PDFDownloadLink> */}
             </div>
         </div>
     );
