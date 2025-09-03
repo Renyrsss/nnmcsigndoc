@@ -55,8 +55,7 @@ function rusDoc() {
                     </p>
                     <p className='mb-2 first-letter:ml-5 text-justify'>
                         Я, : {UserDataStore.user.fio}, Иин{" "}
-                        {UserDataStore.user.iin} , Адрес проживания{" "}
-                        {UserDataStore.user.adress} , Контактный телефон{" "}
+                        {UserDataStore.user.iin}, Контактный телефон{" "}
                         {UserDataStore.user.phone}
                     </p>
 
@@ -207,8 +206,7 @@ function kzDoc() {
                     </p>
                     <p className='mb-2 first-letter:ml-5 text-justify'>
                         Мен: {UserDataStore.user.fio}, ЖСН{" "}
-                        {UserDataStore.user.iin} , Тұрғылықты мекенжайы{" "}
-                        {UserDataStore.user.adress} , Байланыс телефоны{" "}
+                        {UserDataStore.user.iin}, Байланыс телефоны{" "}
                         {UserDataStore.user.phone}
                     </p>
 

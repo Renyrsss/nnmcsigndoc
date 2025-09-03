@@ -176,7 +176,8 @@ const SignaturePad = ({
     return (
         <div>
             {signSuccess ? alertSuccess() : ""}
-            <div className='flex justify-center'>
+            <p className='text-center'>Нарисуйте свою подпись</p>
+            <div className='flex justify-center '>
                 <SignatureCanvas
                     ref={sigCanvas}
                     penColor='blue'

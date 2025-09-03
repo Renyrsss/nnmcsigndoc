@@ -31,7 +31,7 @@ export default function Example() {
             usersData.fio.trim() &&
             // usersData.data.trim() &&
             usersData.iin.trim() &&
-            usersData.adress.trim() &&
+            // usersData.adress.trim() &&
             usersData.phone.trim() &&
             // usersData.numberUcard.trim() &&
             // usersData.dateUcard.trim() &&
@@ -125,7 +125,7 @@ export default function Example() {
                         English
                     </button> */}
                 </div>
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1  mb-6'>
+                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 mb-6'>
                     <div className=''>
                         <label
                             htmlFor='first-name'
@@ -142,6 +142,31 @@ export default function Example() {
                                 }}
                                 value={usersData.fio}
                                 type='text'
+                                name='first-name'
+                                id='first-name'
+                                autoComplete='given-name'
+                                placeholder='Мухамедин А А'
+                                className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            htmlFor='first-name'
+                            className='block text-sm font-semibold leading-6 text-gray-900'>
+                            {t("iin")}
+                        </label>
+                        <div className='mt-2.5'>
+                            <input
+                                onChange={(e) => {
+                                    setUserData({
+                                        ...usersData,
+                                        iin: e.target.value,
+                                    });
+                                }}
+                                value={usersData.iin}
+                                placeholder='000115551110'
+                                type='number'
                                 name='first-name'
                                 id='first-name'
                                 autoComplete='given-name'
@@ -247,7 +272,7 @@ export default function Example() {
                     </div>
                 </div> */}
 
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2  mb-6'>
+                {/* <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2  mb-6'>
                     <div>
                         <label
                             htmlFor='first-name'
@@ -294,7 +319,7 @@ export default function Example() {
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 mb-16'>
                     <div>
                         <label
