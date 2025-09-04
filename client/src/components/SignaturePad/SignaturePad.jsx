@@ -13,6 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./SignaturePad.css";
 import { useTranslation } from "react-i18next";
+import BotSend from "../BotSend";
 
 const SignaturePad = ({
     onEnd,
@@ -124,6 +125,14 @@ const SignaturePad = ({
                                 // },
                                 body: formData,
                             })
+                                .then(() => {
+                                    BotSend({
+                                        FIO: userData.user.fio,
+                                        IIN: userData.user.iin,
+                                        phone: userData.user.phone,
+                                        email: userData.user.Email,
+                                    });
+                                })
                                 .then(() => {
                                     // setUserData({
                                     //     name: "",
