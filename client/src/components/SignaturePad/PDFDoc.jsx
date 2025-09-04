@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
 });
 
-function kzDoc(signature) {
+function kzDoc(signature, userPhoto) {
     return (
         <>
             <Page style={styles.page}>
@@ -226,9 +226,14 @@ function kzDoc(signature) {
                     </Text>
                     <Text>{UserDataStore.user.fio}</Text>
 
-                    {signature && (
-                        <Image style={styles.image} src={signature} />
-                    )}
+                    <View style={styles.imgblock}>
+                        {signature && (
+                            <Image style={styles.image} src={signature} />
+                        )}
+                        {userPhoto && (
+                            <Image style={styles.photo} src={userPhoto} />
+                        )}
+                    </View>
                 </View>
             </Page>
         </>
@@ -972,7 +977,9 @@ const PDFDocument = ({ signature }) => (
         {UserDataStore.langs == "ru"
             ? rusDoc(signature, UserDataStore.userPhoto)
             : ""}
-        {UserDataStore.langs == "kz" ? kzDoc(signature) : ""}
+        {UserDataStore.langs == "kz"
+            ? kzDoc(signature, UserDataStore.userPhoto)
+            : ""}
         {UserDataStore.langs == "en" ? enDoc(signature) : ""}
     </Document>
 );
