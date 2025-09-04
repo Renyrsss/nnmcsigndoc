@@ -106,13 +106,13 @@ const SignaturePad = observer(
                 console.log(pdf(<PDFDocument signature={signature} />));
                 // const response = await axios.post('http://192.168.101.25:1337/api/bahadors', jsonData );
                 axios
-                    .post("http://localhost:1339/api/upload/", formData) //192.168.13.147  localhost
+                    .post("https://localhost:1339/api/upload/", formData) //192.168.13.147  localhost
                     .then((res) => {
                         const fileId = res.data[0].id;
                         console.log(jsonData);
                         axios
                             .post(
-                                `http://localhost:1339/api/podpisannye-dokumenties`,
+                                `https://localhost:1339/api/podpisannye-dokumenties`,
                                 {
                                     //192.168.13.147   localhost
                                     data: {
