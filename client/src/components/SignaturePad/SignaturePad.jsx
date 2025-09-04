@@ -212,7 +212,7 @@ const SignaturePad = observer(
                         onClick={clear}>
                         {t("reload")}
                     </button>
-
+                    {/* 
                     <PDFDownloadLink
                         document={<PDFDocument signature={signature} />}
                         fileName='signature.pdf'
@@ -220,7 +220,7 @@ const SignaturePad = observer(
                         {({ loading }) =>
                             loading ? "Generating PDF..." : t("lookdoc")
                         }
-                    </PDFDownloadLink>
+                    </PDFDownloadLink> */}
                 </div>
             </div>
         );
