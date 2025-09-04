@@ -7,6 +7,7 @@ class User {
     submitBtn = false;
     loading = false;
     langs = "ru";
+    userPhoto = "";
     constructor() {
         makeAutoObservable(this);
     }

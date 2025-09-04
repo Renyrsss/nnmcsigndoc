@@ -4,6 +4,8 @@ import { Field, Label, Switch } from "@headlessui/react";
 import { useEffect, useState, useRef } from "react";
 import UserDataStore from "../store/userData";
 import { useTranslation } from "react-i18next";
+import FaceCapture from "./main/FaceCapture";
+import userData from "../store/userData";
 
 function SignPage() {
     const { t, i18n } = useTranslation();
@@ -29,11 +31,17 @@ function SignPage() {
         if (
             UserDataStore.user.fio &&
             UserDataStore.user.iin &&
-            UserDataStore.user.Email
+            UserDataStore.user.Email &&
+            UserDataStore.userPhoto
         ) {
-            console.log(UserDataStore.user.fio);
-            setSubmit(true);
-            console.log("submit is activated");
+            if (agreed) {
+                UserDataStore.chagneLoading(true);
+                console.log(UserDataStore.user.fio);
+                setSubmit(true);
+                console.log("submit is activated");
+            } else {
+                UserDataStore.chagneLoading(false);
+            }
         } else {
             setalertState(true);
             setTimeout(() => {
@@ -91,6 +99,7 @@ function SignPage() {
                             {t("sign")}
                         </h2>
                     </div>
+                    <FaceCapture />
                     <div
                         className='absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]'
                         aria-hidden='true'>
@@ -147,10 +156,7 @@ function SignPage() {
                     <div className='mt-10'>
                         <p
                             onClick={(e) => {
-                                if (agreed) {
-                                    UserDataStore.chagneLoading(true);
-                                    validateData();
-                                }
+                                validateData();
                             }}
                             className={`block w-full rounded-md sd:w-40 sd:mx-auto ${
                                 agreed ? "bg-indigo-600" : " bg-gray-600"

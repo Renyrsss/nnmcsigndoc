@@ -11,6 +11,7 @@ import {
 } from "@react-pdf/renderer";
 import roboto from "./Roboto-Regular.ttf"; // Укажите путь к вашему файлу шрифта
 import UserDataStore from "../../store/userData";
+import { observer } from "mobx-react-lite";
 
 // Регистрация шрифта
 Font.register({
@@ -75,6 +76,15 @@ const styles = StyleSheet.create({
     blocks: {
         display: "block",
         width: "47%",
+    },
+    photo: {
+        width: 150,
+        marginLeft: 20,
+        // marginTop: 20,
+        border: "1px solid black",
+    },
+    imgblock: {
+        flexDirection: "row",
     },
 });
 
@@ -225,7 +235,7 @@ function kzDoc(signature) {
     );
 }
 
-function rusDoc(signature) {
+function rusDoc(signature, userPhoto) {
     return (
         <>
             <Page style={styles.page}>
@@ -368,9 +378,14 @@ function rusDoc(signature) {
                         {date.getFullYear()}
                     </Text>
 
-                    {signature && (
-                        <Image style={styles.image} src={signature} />
-                    )}
+                    <View style={styles.imgblock}>
+                        {signature && (
+                            <Image style={styles.image} src={signature} />
+                        )}
+                        {userPhoto && (
+                            <Image style={styles.photo} src={userPhoto} />
+                        )}
+                    </View>
                 </View>
             </Page>
         </>
@@ -954,7 +969,9 @@ function enDoc(signature) {
 let date = new Date();
 const PDFDocument = ({ signature }) => (
     <Document>
-        {UserDataStore.langs == "ru" ? rusDoc(signature) : ""}
+        {UserDataStore.langs == "ru"
+            ? rusDoc(signature, UserDataStore.userPhoto)
+            : ""}
         {UserDataStore.langs == "kz" ? kzDoc(signature) : ""}
         {UserDataStore.langs == "en" ? enDoc(signature) : ""}
     </Document>

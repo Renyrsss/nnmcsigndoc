@@ -7,19 +7,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
-    const [count, setCount] = useState(0);
-    const [signature, setSignature] = useState(null);
-
-    const handleEnd = (signature) => {
-        setSignature(signature);
-    };
     return (
         <>
             <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/Document" element={<DocumentPage />} />
-                <Route path="SignPage" element={<SignPage />} />
-                <Route path="*" element={<Main />} />
+                <Route path='/' element={<Main />} />
+                <Route path='/Document' element={<DocumentPage />} />
+                <Route path='SignPage' element={<SignPage />} />
+                <Route path='*' element={<Main />} />
             </Routes>
         </>
     );

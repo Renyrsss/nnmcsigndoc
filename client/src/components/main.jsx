@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import UserDataStore from "../store/userData";
+import FaceCapture from "./main/FaceCapture";
 
 export default function Example() {
     const navigate = useNavigate();
