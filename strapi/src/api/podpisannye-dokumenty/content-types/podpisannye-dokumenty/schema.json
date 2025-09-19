@@ -4,8 +4,7 @@
   "info": {
     "singularName": "podpisannye-dokumenty",
     "pluralName": "podpisannye-dokumenties",
-    "displayName": "Подписанные документы",
-    "description": ""
+    "displayName": "подписанные документы"
   },
   "options": {
     "draftAndPublish": true
@@ -27,7 +26,6 @@
     "userDoc": {
       "type": "media",
       "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
