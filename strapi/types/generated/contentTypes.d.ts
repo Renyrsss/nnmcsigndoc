@@ -538,39 +538,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPodpisannyeDokumentyPodpisannyeDokumenty
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'podpisannye_dokumenties';
-  info: {
-    displayName: '\u043F\u043E\u0434\u043F\u0438\u0441\u0430\u043D\u043D\u044B\u0435 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B';
-    pluralName: 'podpisannye-dokumenties';
-    singularName: 'podpisannye-dokumenty';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::podpisannye-dokumenty.podpisannye-dokumenty'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    userDoc: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    userEmail: Schema.Attribute.Email;
-    useriin: Schema.Attribute.String;
-    userName: Schema.Attribute.String;
-    userPhone: Schema.Attribute.String;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1085,7 +1052,6 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
-      'api::podpisannye-dokumenty.podpisannye-dokumenty': ApiPodpisannyeDokumentyPodpisannyeDokumenty;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

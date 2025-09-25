@@ -5,6 +5,10 @@ import tailwindcss from "tailwindcss";
 export default defineConfig({
     server: {
         port: 4000, // укажи свой порт
+	allowedHosts: [
+      'kdu.projects.nnmc.kz', // твой домен
+      'localhost'
+    ]
     },
     plugins: [react(), tailwindcss()],
 });
