@@ -108,75 +108,81 @@ const SignaturePad = observer(
                 console.log(pdf(<PDFDocument signature={signature} />));
                 // const response = await axios.post('http://192.168.101.25:1337/api/bahadors', jsonData );
                 axios
-                    .post("http://localhost:1337/api/upload/", formData) //192.168.13.147  localhost
+                    .post(
+                        "https://kdu.projects.nnmc.kz/server/api/upload/",
+                        formData
+                    ) //192.168.13.147  localhost
                     .then((res) => {
                         const fileId = res.data[0].id;
                         console.log(jsonData);
-                        axios
-                            .post(
-                                `http://localhost:1337/api/kdus
-`,
-                                {
-                                    //192.168.13.147   localhost
-                                    data: {
-                                        userName: userData.user.fio,
-                                        useriin: userData.user.iin,
-                                        userPhone: userData.user.phone,
-                                        userEmail: userData.user.Email,
-                                        userDoc: fileId,
-                                    },
-                                }
-                            )
-                            .then((e) => {
-                                // console.log(jsonData);
-                                // //192.168.13.147  localhost
-                                // fetch("http://192.168.101.25:3003/send", {
-                                //     method: "POST",
-                                //     // headers: {
-                                //     // 'Content-Type': 'application/json'
-                                //     // },
-                                //     body: formData,
-                                // })
-                                //     .then(() => {
-                                BotSend({
-                                    FIO: userData.user.fio,
-                                    IIN: userData.user.iin,
-                                    phone: userData.user.phone,
-                                    email: userData.user.Email,
+                        try {
+                            axios
+                                .post(
+                                    `https://kdu.projects.nnmc.kz/server/api/kdus`,
+                                    {
+                                        //192.168.13.147   localhost
+                                        data: {
+                                            userName: userData.user.fio,
+                                            useriin: userData.user.iin,
+                                            userPhone: userData.user.phone,
+                                            userEmail: userData.user.Email,
+                                            userDoc: fileId,
+                                        },
+                                    }
+                                )
+                                .then((e) => {
+                                    // console.log(jsonData);
+                                    // //192.168.13.147  localhost
+                                    // fetch("http://192.168.101.25:3003/send", {
+                                    //     method: "POST",
+                                    //     // headers: {
+                                    //     // 'Content-Type': 'application/json'
+                                    //     // },
+                                    //     body: formData,
+                                    // })
+                                    //     .then(() => {
+                                    BotSend({
+                                        FIO: userData.user.fio,
+                                        IIN: userData.user.iin,
+                                        phone: userData.user.phone,
+                                        email: userData.user.Email,
+                                    });
+                                    // })
+                                    // .then(() => {
+                                    // setUserData({
+                                    //     name: "",
+                                    //     surName: "",
+                                    //     userSide: "",
+                                    //     Email: "",
+                                    // });
+                                    sigCanvas.current.clear();
+                                    setSignature(null);
+                                    agreedFunc(false);
+                                    submitFunc(false);
+                                    setsignSuccess(true);
+                                    // navigate("/");
+                                    setTimeout(() => {
+                                        setsignSuccess(false);
+                                        userData.chagneLoading(false);
+                                        navigate("/");
+                                    }, 2000);
+                                    // })
+                                    // .then(response => response.json())
+                                    // .then(data => {
+                                    //       if (data.success) {
+                                    //             alert('Email sent successfully!');
+                                    //       } else {
+                                    //             alert('Failed to send email.');
+                                    //       }
+                                    // })
+                                    // .catch((error) => {
+                                    //     console.error("Error:", error);
+                                    //     alert("An error occurred.");
+                                    // });
                                 });
-                                // })
-                                // .then(() => {
-                                // setUserData({
-                                //     name: "",
-                                //     surName: "",
-                                //     userSide: "",
-                                //     Email: "",
-                                // });
-                                sigCanvas.current.clear();
-                                setSignature(null);
-                                agreedFunc(false);
-                                submitFunc(false);
-                                setsignSuccess(true);
-                                // navigate("/");
-                                setTimeout(() => {
-                                    setsignSuccess(false);
-                                    userData.chagneLoading(false);
-                                    navigate("/");
-                                }, 2000);
-                                // })
-                                // .then(response => response.json())
-                                // .then(data => {
-                                //       if (data.success) {
-                                //             alert('Email sent successfully!');
-                                //       } else {
-                                //             alert('Failed to send email.');
-                                //       }
-                                // })
-                                // .catch((error) => {
-                                //     console.error("Error:", error);
-                                //     alert("An error occurred.");
-                                // });
-                            });
+                        } catch (e) {
+                            console.log(e);
+                        }
                     });
             } catch (error) {
                 console.error("Error sending PDF to server:", error);
