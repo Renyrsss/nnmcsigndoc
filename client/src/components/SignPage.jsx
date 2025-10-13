@@ -6,6 +6,7 @@ import UserDataStore from "../store/userData";
 import { useTranslation } from "react-i18next";
 import FaceCapture from "./main/FaceCapture";
 import userData from "../store/userData";
+import { useNavigate } from "react-router-dom";
 
 function SignPage() {
     const { t, i18n } = useTranslation();
@@ -18,7 +19,12 @@ function SignPage() {
     };
     const [agreed, setAgreed] = useState(false);
     const [submit, setSubmit] = useState(false);
-
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!userData?.user) {
+            navigate("/"); // переход на главную страницу
+        }
+    }, [userData, navigate]);
     useEffect(() => {
         UserDataStore.changeAgreed(agreed);
     }, [agreed]);

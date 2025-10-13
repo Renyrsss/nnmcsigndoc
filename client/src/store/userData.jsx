@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class User {
-    user = {};
+    user = null;
     agreed = false;
     signed = "";
     submitBtn = false;

@@ -54,9 +54,9 @@ function rusDoc() {
                         договор) от 31.07.2024 г.
                     </p>
                     <p className='mb-2 first-letter:ml-5 text-justify'>
-                        Я, : {UserDataStore.user.fio}, Иин{" "}
-                        {UserDataStore.user.iin}, Контактный телефон{" "}
-                        {UserDataStore.user.phone}
+                        Я, : {UserDataStore.user?.fio}, Иин{" "}
+                        {UserDataStore.user?.iin}, Контактный телефон{" "}
+                        {UserDataStore.user?.phone}
                     </p>
 
                     <p className='mb-2 first-letter:ml-5 text-justify'>
@@ -145,7 +145,7 @@ function rusDoc() {
                         обследования и лечения я разрешаю сообщать следующим
                         лицам: (Ф.И.О. лица которому разрешается сообщать
                         информацию о ходе лечения, указать родство/отношение,
-                        телефон): {UserDataStore.user.phone}
+                        телефон): {UserDataStore.user?.phone}
                     </p>
                     <p className='mb-2 first-letter:ml-5 text-justify'>
                         Я информирован(а), что имею право отказаться от
@@ -170,7 +170,7 @@ function rusDoc() {
                     </p>
 
                     <p className='mb-2 first-letter:ml-5 text-justify'>
-                        Пациент(ка): {UserDataStore.user.fio}
+                        Пациент(ка): {UserDataStore.user?.fio}
                     </p>
                 </AccordionBody>
             </Accordion>
