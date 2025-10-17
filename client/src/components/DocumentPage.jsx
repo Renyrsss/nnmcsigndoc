@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const DocumentPage = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        if (!userData?.user) {
+        if (userData?.user?.fio == "") {
             navigate("/"); // переход на главную страницу
         }
     }, [userData, navigate]);

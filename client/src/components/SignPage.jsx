@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import FaceCapture from "./main/FaceCapture";
 import userData from "../store/userData";
 import { useNavigate } from "react-router-dom";
+import { toJS } from "mobx";
 
 function SignPage() {
     const { t, i18n } = useTranslation();
@@ -20,8 +21,10 @@ function SignPage() {
     const [agreed, setAgreed] = useState(false);
     const [submit, setSubmit] = useState(false);
     const navigate = useNavigate();
+    console.log(toJS(userData?.user));
+
     useEffect(() => {
-        if (!userData?.user) {
+        if (userData?.user?.fio == "") {
             navigate("/"); // переход на главную страницу
         }
     }, [userData, navigate]);

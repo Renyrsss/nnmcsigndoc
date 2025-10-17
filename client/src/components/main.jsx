@@ -31,9 +31,9 @@ export default function Example() {
         if (
             usersData.fio.trim() &&
             // usersData.data.trim() &&
-            usersData.iin.trim() &&
+            usersData.iin.trim().length >= 12 &&
             // usersData.adress.trim() &&
-            usersData.phone.trim() &&
+            usersData.phone.trim().length >= 10 &&
             // usersData.numberUcard.trim() &&
             // usersData.dateUcard.trim() &&
             usersData.Email.trim().includes("@")
