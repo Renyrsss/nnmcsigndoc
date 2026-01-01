@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useStore from '../store/useStore';
@@ -9,36 +9,28 @@ import Alert from '../components/Alert';
 import LanguageSelector from '../components/LanguageSelector';
 import config from '../config';
 
-/**
- * Главная страница - форма ввода данных пользователя
- */
 const HomePage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { userData, setUserData, setFormCompleted, validateForm } = useStore();
   const [alert, setAlert] = useState(null);
   
-  // Обработчик изменения полей
   const handleChange = useCallback((field) => (e) => {
     setUserData({ [field]: e.target.value });
   }, [setUserData]);
   
-  // Валидация и переход к документу
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
     
     if (!validateForm()) {
-      // Определяем какое поле не заполнено
-      let message = t('alertField') || 'Пожалуйста, заполните все обязательные поля';
+      let message = t('alertField');
       
       if (!userData.fio.trim()) {
-        message = t('fillFio') || 'Введите ФИО';
+        message = t('fillFio');
       } else if (userData.iin.trim().length < config.VALIDATION.IIN_LENGTH) {
-        message = t('fillIin') || 'ИИН должен содержать 12 цифр';
+        message = t('fillIin');
       } else if (userData.phone.trim().length < config.VALIDATION.MIN_PHONE_LENGTH) {
-        message = t('fillPhone') || 'Введите корректный номер телефона';
-      } else if (!userData.email.includes('@')) {
-        message = t('alertEmail') || 'Введите корректный email';
+        message = t('fillPhone');
       }
       
       setAlert({ message, type: 'warning' });
@@ -52,7 +44,6 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="isolate px-6 py-16 lg:px-8">
-        {/* Уведомление */}
         {alert && (
           <Alert
             message={alert.message}
@@ -61,25 +52,21 @@ const HomePage = () => {
           />
         )}
         
-        {/* Заголовок */}
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {t('sign') || 'Подписание документа'}
+            {t('sign')}
           </h1>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            {t('fillForm') || 'Заполните форму для подписания документа'}
+            {t('fillForm')}
           </p>
         </div>
         
-        {/* Форма */}
         <form onSubmit={handleSubmit} className="mx-auto mt-10 max-w-xl">
-          {/* Выбор языка */}
           <LanguageSelector />
           
-          {/* Поля формы */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Input
-              label={t('fio') || 'ФИО'}
+              label={t('fio')}
               name="fio"
               value={userData.fio}
               onChange={handleChange('fio')}
@@ -89,7 +76,7 @@ const HomePage = () => {
             />
             
             <Input
-              label={t('iin') || 'ИИН'}
+              label={t('iin')}
               name="iin"
               type="text"
               inputMode="numeric"
@@ -101,7 +88,7 @@ const HomePage = () => {
             />
             
             <Input
-              label={t('phone') || 'Телефон'}
+              label={t('phone')}
               name="phone"
               type="tel"
               value={userData.phone}
@@ -109,32 +96,11 @@ const HomePage = () => {
               placeholder="+7 777 123 4567"
               required
             />
-            
-            <Input
-              label="Email"
-              name="email"
-              type="email"
-              value={userData.email}
-              onChange={handleChange('email')}
-              placeholder="example@mail.com"
-              required
-              className="sm:col-span-2"
-            />
-            
-            <Input
-              label={t('address') || 'Адрес (опционально)'}
-              name="address"
-              value={userData.address}
-              onChange={handleChange('address')}
-              placeholder="г. Астана, ул. Примерная, 1"
-              className="sm:col-span-2"
-            />
           </div>
           
-          {/* Кнопка продолжения */}
           <div className="mt-10">
             <Button type="submit" className="w-full sm:w-auto sm:mx-auto sm:block sm:px-8">
-              {t('nextBtn1') || 'Продолжить'}
+              {t('nextBtn1')}
             </Button>
           </div>
         </form>

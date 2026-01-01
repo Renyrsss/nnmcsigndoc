@@ -1,7 +1,6 @@
 import axios from 'axios';
 import config from '../config';
 
-// Создаём axios instance с базовым URL
 const api = axios.create({
   baseURL: config.API_BASE_URL,
   headers: {
@@ -9,9 +8,7 @@ const api = axios.create({
   },
 });
 
-// Сервис для работы с формами согласия (consent-forms)
 export const consentFormsService = {
-  // Получить список всех активных форм
   async getAll() {
     try {
       const response = await api.get(config.ENDPOINTS.CONSENT_FORMS, {
@@ -27,7 +24,6 @@ export const consentFormsService = {
     }
   },
   
-  // Получить форму по ID
   async getById(id) {
     try {
       const response = await api.get(`${config.ENDPOINTS.CONSENT_FORMS}/${id}`, {
@@ -42,7 +38,6 @@ export const consentFormsService = {
     }
   },
   
-  // Получить форму по slug
   async getBySlug(slug) {
     try {
       const response = await api.get(config.ENDPOINTS.CONSENT_FORMS, {
@@ -60,9 +55,7 @@ export const consentFormsService = {
   },
 };
 
-// Сервис для загрузки файлов
 export const uploadService = {
-  // Загрузить файл (PDF, фото)
   async uploadFile(file, fileName) {
     try {
       const formData = new FormData();
@@ -81,9 +74,7 @@ export const uploadService = {
   },
 };
 
-// Сервис для сохранения подписанных документов
 export const signedDocumentsService = {
-  // Создать запись о подписанном документе
   async create(data) {
     try {
       const response = await api.post(config.ENDPOINTS.SIGNED_DOCUMENTS, {
@@ -91,10 +82,9 @@ export const signedDocumentsService = {
           userName: data.userName,
           userIIN: data.userIIN,
           userPhone: data.userPhone,
-          userEmail: data.userEmail,
-          consentForm: data.consentFormId, // ID формы согласия
-          signedFile: data.signedFileId,   // ID загруженного PDF
-          userPhoto: data.userPhotoId,     // ID загруженного фото
+          consent_form: data.consentFormId,
+          signedFile: data.signedFileId,
+          userPhoto: data.userPhotoId,
           signedAt: new Date().toISOString(),
         },
       });
@@ -106,7 +96,6 @@ export const signedDocumentsService = {
   },
 };
 
-// Сервис для отправки в Telegram (опционально)
 export const telegramService = {
   async sendNotification(data) {
     if (!config.TELEGRAM.ENABLED || !config.TELEGRAM.TOKEN) {
@@ -120,7 +109,6 @@ export const telegramService = {
 <b>ФИО:</b> ${data.fio}
 <b>ИИН:</b> ${data.iin}
 <b>Телефон:</b> ${data.phone}
-<b>Email:</b> ${data.email}
 <b>Документ:</b> ${data.documentTitle || 'Публичная оферта'}
 <b>Дата:</b> ${new Date().toLocaleString('ru-RU')}
     `.trim();
