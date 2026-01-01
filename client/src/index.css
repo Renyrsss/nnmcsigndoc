@@ -1,3 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Базовые стили */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Стили для prose (текст документа) */
+.prose p {
+  margin-bottom: 1rem;
+  text-indent: 1.5rem;
+}
+
+.prose p:first-child {
+  text-indent: 0;
+}
+
+/* Градиентные кнопки */
+.gradKZ {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

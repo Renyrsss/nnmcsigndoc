@@ -1,0 +1,5 @@
+.sigCanvas {
+  border-radius: 0.5rem;
+  background-color: #fafafa;
+  touch-action: none;
+}
